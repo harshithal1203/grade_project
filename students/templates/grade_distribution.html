@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>Grade Distribution Counter</title>
+     <style>
+         body {
+             font-family: Arial;
+             background-color: #f5f7fa;
+             margin: 40px;
+         }
+         h1 {
+             text-align: center;
+             color: #2c3e50;
+         }
+         .box {
+             width: 70%;
+             margin: 20px auto;
+             padding: 20px;
+             background-color: white;
+             border-radius: 10px;
+             box-shadow: 0 0 10px #ccc;
+         }
+         table {
+             width: 100%;
+             border-collapse: collapse;
+             margin-top: 15px;
+         }
+         th, td {
+             border: 1px solid #ddd;
+             padding: 10px;
+             text-align: center;
+         }
+         th {
+             background-color: #3498db;
+             color: white;
+         }
+         .stats {
+             display: flex;
+             justify-content: space-around;
+             background: #ecf0f1;
+             padding: 15px;
+             border-radius: 10px;
+             margin-bottom: 15px;
+         }
+         .stats div {
+             font-weight: bold;
+             color: #2c3e50;
+         }
+     </style>
+</head>
+<body>
+     <h1> Grade Distribution Counter</h1>
+
+     <div class="box">
+         <div class="stats">
+             <div>Grade A: {{ count_A }}</div>
+             <div>Grade B: {{ count_B }}</div>
+             <div>Grade C: {{ count_C }}</div>
+             <div>Grade D: {{ count_D }}</div>
+             <div>Fail: {{ count_Fail }}</div>
+             <div>Total Students: {{ total }}</div>
+         </div>
+
+         <table>
+             <tr>
+                 <th>Name</th>
+                 <th>Subject</th>
+                 <th>Marks</th>
+                 <th>Grade</th>
+             </tr>
+             {% for s in students %}
+             <tr>
+                 <td>{{ s.name }}</td>
+                 <td>{{ s.subject }}</td>
+                 <td>{{ s.marks }}</td>
+                 <td>{{ s.grade }}</td>
+             </tr>
+             {% endfor %}
+         </table>
+     </div>
+</body>
+</html>
